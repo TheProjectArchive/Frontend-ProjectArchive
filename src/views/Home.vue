@@ -1,5 +1,8 @@
 <template>
   <div class="home">
+    <router-link to="/home">Home</router-link>
+    <router-link to="/about">About</router-link>
+    <router-link to="/about">Contact</router-link>
     <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
@@ -16,3 +19,8 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus" scoped>
+
+</style>
+
