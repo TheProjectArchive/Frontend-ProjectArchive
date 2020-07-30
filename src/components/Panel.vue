@@ -6,7 +6,12 @@
 
 <style scoped>
     .panel{
-        height: 400px;
-        width: 1500px;
+        margin-left: 80px;
+        margin-right: 80px;
+        height: 500px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center; 
     }
 </style>

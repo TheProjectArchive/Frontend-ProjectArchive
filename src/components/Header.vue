@@ -17,7 +17,7 @@
         justify-content: flex-end;
     }
     .esp-logo{
-        margin-top: 40px;
+        margin-top: 25px;
         margin-left: 80px;
         width: 38px;
         height: 36px;
