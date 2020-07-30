@@ -1,16 +1,33 @@
 <template>
     <div class="grid-container">
-        <a class="esp-logo" href="/"><img src="../assets/esp-logo.png" alt="logo"></a>  
+        <a class="esp-logo" href="/"><img src="../assets/esp-logo.png" alt="logo"></a>
+        <Menu v-if="!index"/>
+        <div v-else/>
         <div class="flex-container">
             <img class="project-archive-text" src="../assets/projectArchive-text.png" alt="text">
         </div>
     </div>
 </template>
 
+<script>
+import Menu from './Menu'
+
+export default {
+    components:{
+        Menu,
+    },
+    computed:{
+        index(){
+            return this.$route.path === '/'
+        }
+    }
+}
+</script>
+
 <style lang="css" scoped>
     .grid-container{
         display: grid;
-        grid-template-columns: auto auto;
+        grid-template-columns: 630px 630px 630px;
     }
     .flex-container{
         display: flex;
