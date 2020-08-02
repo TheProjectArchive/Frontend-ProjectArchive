@@ -27,7 +27,7 @@ export default {
 <style lang="css" scoped>
     .grid-container{
         display: grid;
-        grid-template-columns: 320px 700px 360px;
+        grid-template-columns: 400px 700px 400px;
     }
     .flex-container{
         display: flex;
