@@ -27,7 +27,7 @@ export default {
 <style lang="css" scoped>
     .grid-container{
         display: grid;
-        grid-template-columns: 630px 630px 630px;
+        grid-template-columns: 320px 700px 360px;
     }
     .flex-container{
         display: flex;
@@ -42,7 +42,7 @@ export default {
     .project-archive-text{
         width: 200.41px;
         height: 24.85px;
-        margin-top: 40px;
+        margin-top: 30px;
         margin-right: 80px;
     }
 </style>

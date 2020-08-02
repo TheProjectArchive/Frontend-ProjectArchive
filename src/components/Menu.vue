@@ -16,7 +16,8 @@
         font-weight: bold;
     }
     .grid-container{
-        margin-top: 45px;
+        margin-top: 35px;
+        padding-bottom: 10px;
         display: grid;
         grid-template-columns: 200px 135px 200px;
     }
