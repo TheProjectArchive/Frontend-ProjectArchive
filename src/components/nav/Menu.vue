@@ -15,6 +15,12 @@
         text-decoration: none;
         font-weight: bold;
     }
+    a:active{
+        color: black;
+    }
+    a:link{
+        color: white;
+    }
     .grid-container{
         margin-top: 35px;
         padding-bottom: 10px;

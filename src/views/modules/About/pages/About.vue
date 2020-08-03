@@ -8,7 +8,7 @@ To ensure the optimal result, i approach every project with a comprehensive and 
 </template>
 
 <script>
-import Panel from "../components/Panel";
+import Panel from "@/components/Panel";
 export default {
   components:{
     Panel,

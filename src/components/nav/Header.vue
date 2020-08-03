@@ -1,10 +1,10 @@
 <template>
     <div class="grid-container">
-        <a class="esp-logo" href="/"><img src="../assets/esp-logo.png" alt="logo"></a>
+        <a class="esp-logo" href="/"><img src="@/assets/esp-logo.png" alt="logo"></a>
         <Menu v-if="!index"/>
         <div v-else/>
         <div class="flex-container">
-            <img class="project-archive-text" src="../assets/projectArchive-text.png" alt="text">
+            <img class="project-archive-text" src="@/assets/projectArchive-text.png" alt="text">
         </div>
     </div>
 </template>

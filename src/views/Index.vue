@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="container">
+        <div data-aos="fade-up" class="container">
             <router-link to="/about">About</router-link>
             <router-link to="/work">Work</router-link>
             <router-link to="/contact">Contact</router-link>
