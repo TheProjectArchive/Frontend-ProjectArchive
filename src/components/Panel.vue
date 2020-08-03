@@ -6,6 +6,7 @@
 
 <style scoped>
     .panel{
+        position: relative;
         margin-left: 80px;
         margin-right: 80px;
         height: 500px;
