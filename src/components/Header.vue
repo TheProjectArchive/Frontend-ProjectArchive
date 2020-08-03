@@ -26,16 +26,16 @@ export default {
 
 <style lang="css" scoped>
     .grid-container{
+        position: relative;
         display: grid;
-        grid-template-columns: 400px 700px 400px;
+        grid-template-columns: auto auto auto;
     }
     .flex-container{
         display: flex;
         justify-content: flex-end;
     }
     .esp-logo{
-        margin-top: 25px;
-        margin-left: 80px;
+        margin: 25px 120px 0 80px;
         width: 38px;
         height: 36px;
     }
