@@ -5,3 +5,7 @@
 .grid{
     display: grid;
 }
+
+.bold{
+    font-weight: bold;
+}

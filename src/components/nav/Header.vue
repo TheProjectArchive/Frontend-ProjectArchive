@@ -29,6 +29,7 @@ export default {
         position: relative;
         display: grid;
         grid-template-columns: auto auto auto;
+        padding-bottom: 30px;
     }
     .flex-container{
         display: flex;

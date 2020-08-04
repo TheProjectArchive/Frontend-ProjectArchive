@@ -6,13 +6,13 @@
 
 <style scoped>
     .panel{
-        position: relative;
+        color: white;
         margin-left: 80px;
         margin-right: 80px;
-        height: 500px;
-        color: white;
+        height: 80vh;
+        top: 0;
         display: flex;
         justify-content: center;
-        align-items: center; 
-    }
+        align-items: center;
+  }
 </style>

@@ -10,5 +10,7 @@
         font-size: 13px;
         font-family: 'Montserrat', sans-serif;
         font-weight: lighter;
+        padding-top: 30px;
+        padding-bottom: 30px;
     }
 </style>

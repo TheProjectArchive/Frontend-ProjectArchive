@@ -1,4 +1,5 @@
 <template>
+    <Panel>
     <div data-aos="fade-up" class="white grid">
         <div class="img-container">
             <img src="@/assets/mono-06.png" alt="">
@@ -25,6 +26,7 @@
             <img src="@/assets/mono-06.png" alt="">
         </div>
     </div>
+    </Panel>
 </template>
 
 <style scoped>
@@ -37,3 +39,11 @@
         padding: 10px;
     }
 </style>
+
+<script>
+export default {
+    components:{
+        Panel: () => import('@/components/Panel.vue')
+    }
+}
+</script>

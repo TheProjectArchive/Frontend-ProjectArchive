@@ -34,13 +34,6 @@
 .root{
   background: black;
 }
-.container{
-  height: 84vh;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 </style>
 
 <script>
