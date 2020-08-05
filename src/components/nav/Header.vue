@@ -1,10 +1,12 @@
 <template>
-    <div class="grid-container">
-        <a class="esp-logo" href="/"><img src="@/assets/esp-logo.png" alt="logo"></a>
-        <Menu v-if="!index"/>
-        <div v-else/>
-        <div class="flex-container">
-            <img class="project-archive-text" src="@/assets/projectArchive-text.png" alt="text">
+    <div class="header">
+        <div class="grid-container">
+                <a class="esp-logo" href="/"><img src="@/assets/esp-logo.png" alt="logo"></a>
+            <Menu v-if="!index && !detail"/>
+            <div v-else/>
+            <div class="flex-container">
+                <img class="project-archive-text" src="@/assets/projectArchive-text.png" alt="text">
+            </div>
         </div>
     </div>
 </template>
@@ -19,16 +21,25 @@ export default {
     computed:{
         index(){
             return this.$route.path === '/'
+        },
+        detail(){
+            return this.$route.path === '/detail'
         }
     }
 }
 </script>
 
 <style lang="css" scoped>
+    .header{
+        position: fixed;
+          top: 0;
+          width: 100%;
+          left: 0;
+          background-color: black;
+    }
     .grid-container{
-        position: relative;
         display: grid;
-        grid-template-columns: auto auto auto;
+        grid-template-columns: 500px auto 500px;
         padding-bottom: 30px;
     }
     .flex-container{
@@ -46,4 +57,5 @@ export default {
         margin-top: 30px;
         margin-right: 80px;
     }
+    
 </style>

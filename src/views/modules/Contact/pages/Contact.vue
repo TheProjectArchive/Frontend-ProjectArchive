@@ -1,5 +1,5 @@
 <template>
-        <div id="Contact" class="container">
+        <div id="Contact" data-aos="fade-zoom-in" class="container">
             <div >
                 <div class="input-text grid-container align-left bold white">
                     <label for="name">name</label>
@@ -37,7 +37,7 @@
         color: white;
         margin-left: 80px;
         margin-right: 80px;
-        height: 80vh;
+        height: 70vh;
         top: 0;
         display: flex;
         justify-content: flex-start;

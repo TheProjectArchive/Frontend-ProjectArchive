@@ -9,10 +9,10 @@
         color: white;
         margin-left: 80px;
         margin-right: 80px;
-        height: 80vh;
         top: 0;
         display: flex;
         justify-content: center;
         align-items: center;
+        height: 80vh;
   }
 </style>

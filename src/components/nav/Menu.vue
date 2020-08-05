@@ -1,5 +1,5 @@
 <template>
-    <div class="menu">
+    <div data-aos="fade-zoom-in" class="menu">
         <div class="grid-container">
             <a href="/about">About</a>
             <a href="/work">Work</a>

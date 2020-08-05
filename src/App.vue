@@ -1,21 +1,21 @@
 <template>
   <div id="app">
-    <Header/>
-    <div class="container"> 
-      <router-view/>
-    </div> 
+      <div class="main">
+        <router-view/>
+      </div>
     <Footer/>
+    <Header/>
   </div>
 </template>
 
 <style>
+
 #app {
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  overflow: hidden;
 }
 
 #nav {
@@ -29,6 +29,10 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.main{
+  margin-top: 100px;
 }
 
 .root{

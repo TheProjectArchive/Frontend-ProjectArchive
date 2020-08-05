@@ -9,3 +9,21 @@
 .bold{
     font-weight: bold;
 }
+
+.upppercase{
+    text-transform: uppercase;
+}
+
+.none{
+    text-decoration: none;
+}
+
+.color-black{
+    background-color: black;
+}
+
+.border-white{
+    border-style: solid;
+    border-color: white;
+    border-width: 5px;
+}

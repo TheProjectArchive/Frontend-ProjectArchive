@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div data-aos="fade-up" class="container">
+        <div data-aos="fade-zoom-in" class="container">
             <router-link to="/about">About</router-link>
             <router-link to="/work">Work</router-link>
             <router-link to="/contact">Contact</router-link>
@@ -15,6 +15,8 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        height: 80vh;
+        top:0;
     }
     a{
         text-decoration: none;
