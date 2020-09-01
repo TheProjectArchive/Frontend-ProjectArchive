@@ -32,7 +32,7 @@
 }
 
 .main{
-  margin-top: 100px;
+  margin-top: 6em;
 }
 
 .root{

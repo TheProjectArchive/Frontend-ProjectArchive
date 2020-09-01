@@ -16,7 +16,7 @@
                 </div>
                 <div class="input-text grid-container align-left bold white">
                     <label for="name">message</label>
-                    <input style="width: 530px; height:300px" id="message" type="text">
+                    <textarea id="message" style="width: 530px; height:300px; resize:none;"></textarea>
                 </div>            
             </div>
             <div class="container-send">
@@ -54,6 +54,12 @@
     .input-text{
         padding-top: 13px;
         padding-bottom: 13px;
+    }
+    input{
+        font-family: 'Montserrat', sans-serif;
+    }
+    textarea{
+        font-family: 'Montserrat', sans-serif;
     }
     label{
         font-size: 12px;
