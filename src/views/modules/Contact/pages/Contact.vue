@@ -1,21 +1,22 @@
 <template>
+    <Panel>
         <div id="Contact" data-aos="fade-zoom-in" class="container">
-            <div >
+            <div class="container-form">
                 <div class="input-text grid-container align-left bold white">
                     <label for="name">name</label>
-                    <input style="width: 700px" id="name" type="text">
+                    <input style="width: 530px" id="name" type="text">
                 </div>
                 <div class="input-text grid-container align-left bold white">
                     <label for="name">email</label>
-                    <input style="width: 700px" id="email"  type="text">
+                    <input style="width: 530px" id="email"  type="text">
                 </div>
                 <div class="input-text grid-container align-left bold white">
                     <label for="name">phone</label>
-                    <input style="width: 700px" id="phone" type="text">
+                    <input style="width: 530px" id="phone" type="text">
                 </div>
                 <div class="input-text grid-container align-left bold white">
                     <label for="name">message</label>
-                    <input style="width: 700px; height:344px" id="message" type="text">
+                    <input style="width: 530px; height:300px" id="message" type="text">
                 </div>            
             </div>
             <div class="container-send">
@@ -30,13 +31,20 @@
                 </div>
             </div>
         </div>
+    </Panel>
 </template>
+
+<script>
+    export default {
+        components:{
+            Panel: () => import('@/components/Panel.vue')
+        }
+    }
+</script>
 
 <style scoped>
     .container{
         color: white;
-        margin-left: 80px;
-        margin-right: 80px;
         height: 70vh;
         top: 0;
         display: flex;
@@ -48,6 +56,7 @@
         padding-bottom: 13px;
     }
     label{
+        font-size: 12px;
         text-transform: uppercase;
     }
     .grid-container{
@@ -65,7 +74,7 @@
         
         text-transform: uppercase;
         padding-left: 20px;
-        height: 490px;
+        height: 440px;
         width: 300px;
     }
     .button{
@@ -80,13 +89,10 @@
         color:white;
         font-family: 'Montserrat', sans-serif;
         font-weight: lighter;
-        font-size: 13px;
+        font-size: 20px;
         padding-left: 100px;
-        height: 490px;
+        height: 440px;
         width: 300px;
     }
 </style>
 
-<script>
-
-</script>

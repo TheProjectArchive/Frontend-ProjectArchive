@@ -5,7 +5,9 @@
             <Menu v-if="!index && !detail"/>
             <div v-else/>
             <div class="flex-container">
-                <img class="project-archive-text" src="@/assets/projectArchive-text.png" alt="text">
+                <a href="/work">
+                    <img class="project-archive-text" src="@/assets/projectArchive-text.png" alt="text">
+                </a>
             </div>
         </div>
     </div>
@@ -23,7 +25,7 @@ export default {
             return this.$route.path === '/'
         },
         detail(){
-            return this.$route.path === '/detail'
+            return this.$route.name === 'Detail'
         }
     }
 }

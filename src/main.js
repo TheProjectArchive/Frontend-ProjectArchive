@@ -4,6 +4,8 @@ import router from './router'
 import store from './store'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import jQuery from 'jquery'
+window.jQuery = jQuery
 
 Vue.config.productionTip = false
 

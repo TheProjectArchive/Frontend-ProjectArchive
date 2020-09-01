@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import About from '../views/modules/About/pages/About.vue'
 import Index from '../views/Index.vue'
 import Contact from '../views/modules/Contact/pages/Contact.vue'
+import Work from '../views/modules/Work/pages/Work.vue'
+import Detail from '../views/modules/Work/pages/details/index.vue'
  
 Vue.use(VueRouter)
 
@@ -20,10 +22,7 @@ Vue.use(VueRouter)
   {
     path: '/work',
     name: 'Work',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/modules/Work/pages/Work.vue'),
+    component: Work
   },
   {
     path: '/contact',
@@ -31,10 +30,10 @@ Vue.use(VueRouter)
     component: Contact
   },
   {
-        path: '/detail',
-        name: 'Detail',
-        component: () => import('../views/modules/Work/pages/details/index.vue')
-      }
+    path: '/detail/:detailId',
+    name: 'Detail',
+    component: Detail
+  }
 ]
 
 const router = new VueRouter({

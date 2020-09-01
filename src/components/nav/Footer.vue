@@ -1,10 +1,19 @@
 <template>
     <div class="bottoms">
-        <div v-if="!index && !detail" class="container-flex"><a class="upppercase bold white none" href="/">back</a></div>
-        <div v-else-if="detail" class="container-flex"><a class="upppercase bold white none" href="/work">back</a></div>
-        <div v-else style="height:23px;"></div>
-
-        © 2019 ProjectArchive™ All Rights Reserved.
+        <div v-if="index" style="height:23px;"></div>
+        <div v-else-if="detail" class="container-flex">
+            <a style="text-transform:uppercase; 
+                color:white; 
+                text-decoration: none; 
+                font-weight: bold;" href="/work">back
+            </a>
+        </div>
+        <div v-else class="container-flex"><a class="upppercase bold white none" href="/">back</a></div>
+        © 2019
+        <a @click="openInstagram" class="link">
+            ProjectArchive™
+        </a>
+         All Rights Reserved.
     </div>
 </template>
 
@@ -15,7 +24,24 @@ export default {
             return this.$route.path === '/'
         },
         detail(){
-            return this.$route.path === '/detail'
+            return this.$route.name === 'Detail'
+        },
+        work(){
+            return this.$route.path === '/work'
+        },
+        contact(){
+            return this.$route.path === '/contact'
+        }
+    },
+    mounted(){
+        this.conName()
+    },
+    methods:{
+        openInstagram(){
+            window.open("https://www.instagram.com/project___archive/")
+        },
+        conName(){
+            console.log(this.$route.name)
         }
     }
 }
@@ -42,5 +68,9 @@ export default {
         position: fixed;
         bottom: 0;
         left: 0;
+    }
+    .link{
+        text-decoration: none;
+        color: white;
     }
 </style>
