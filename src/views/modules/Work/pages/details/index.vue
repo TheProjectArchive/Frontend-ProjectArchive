@@ -1,21 +1,18 @@
 <template>
     <Panel>
         <div class="detail-container col-sm">
-                <img style="width:700px; height:290px;" :src="'http://localhost:8080/assets/'+response.bannerimage+'.png'" alt="">
+                <img style="width:700px; height:290px;" :src="'http://admin.theprojectarchive.com'+this.banner_image" alt="">
                 <div class="text-detail">
-                   <div class="title">MONO™</div>
-                   <label style="font-size:24px; margin-bottom:35px;">{{response.category}}</label>
+                   <div class="title">{{ data.nama_brand }}</div>
+                   <label style="font-size:24px; margin-bottom:35px;">{{data.category}}</label>
                    <div style="font-size:12px; height:70px ">
-                       Mono is an experimental product of Radit esp laid on a concept that the audiences are  the fundamental groundwork for an eminent brand, not the other way around. Radit believes that all the energy of individuals plays an imperative part of life. Hence, he longs for the confident audiences thanks to their uniqueness, not because of the products they wear.
+                       {{ data.description }}
                    </div>
             </div>
         </div>
         <div class="col-sm">
-            <workImages :content="response.content"></workImages>
+            <workImages :content="content_image"></workImages>
         </div>  
-        <div>
-            <img @click="scrollDown('scroll-down')" :class="'cursor arrow-scroll ' + className" src="@/assets/scroll-img.png" alt="">
-        </div>
     </Panel>
 </template>
 
@@ -48,11 +45,14 @@
 </style>
 
 <script>
-import request from '@/request.js'
+import api from '@/request.js'
     export default {
         data()
         {
             return{
+                data:{},
+                banner_image: '',
+                content_image: [],
                 response:{
                     bannerimage: 'mono-01',
                     category:'Branding Concept',
@@ -91,14 +91,13 @@ import request from '@/request.js'
         },
         methods:{
             getContentImages(){
-                this.images.id = this.$route.params.detailId
-                request.get('/api/v3/certificates/tracking')
+                this.id = this.$route.params.detailId
+                api.get('/api/content/'+this.id)
                .then((response)=>{
-                    if(response.data.success){
-                        console.log(response.data)
-                    }else{
-                        alert.error(response.data.message)
-                    }
+                   console.log(response.data)
+                    this.data =  response.data
+                    this.banner_image = response.data.banner_image.slice(2,-1)
+                    this.content_image = response.data.content_image
                 })
             }
         }

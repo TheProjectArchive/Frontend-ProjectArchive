@@ -6,7 +6,7 @@
         </div>
         <div data-aos="fade-zoom-in" id="scroll-down" class="container white grid">
             <div v-for="images in image" :key="images.id" style="height:300px">
-                <img class="cursor cover-img" @click="setDetailId(images.id)" v-if="images.img!=''" :src="'http://localhost:8080/assets/image-work/'+images.img+'.png'" alt="content">
+                <img class="cursor cover-img" @click="setDetailId(images.id)" v-if="images.cover_image!=''" :src="'http://admin.theprojectarchive.com'+images.cover_image.slice(2,-1)" alt="content">
                 <img class="cover-img" v-else :src="'http://localhost:8080/assets/not-found.jpg'" alt="not found">
             </div>
         </div>
@@ -16,7 +16,7 @@
         <transition name='fade' appear>
         <div class="modal-overlay flex-center " v-if="filter">
             <div class="filter filter-position">
-                <button @click="getCategory(category)" v-for="category in categories" :key="category.index" > {{category}}</button>
+                <button v-for="category in categories" :key="category.index" > {{category.category}}</button>
             </div>
         </div>
         </transition>
@@ -24,12 +24,14 @@
 </template>
 
 <style scoped>
-    .grid{
+
+  .grid{
         display: grid;
         grid-column-gap: 10px;
         grid-row-gap: 10px;
         grid-template-columns: auto auto auto auto;
     }
+    
     .cursor{
         cursor: pointer;
     }
@@ -61,11 +63,13 @@
         animation-iteration-count: infinite;
     }
     .menu-category{
+        position: fixed;
+        left: 50px;
         padding-right: 50px;
     }
     .modal-overlay{
         position: absolute;
-        top: 100px;
+        top: 10%;
         left: 250px;
         right: 0;
         bottom: 20px;
@@ -115,8 +119,9 @@ export default {
         return {
             className:'bounce',
             filter:false,
-            categories:['visual identity','Illustration','ui/ux', 'collateral'],
-            image:[
+            categories:[],
+            image:[],
+            imagos:[
                 {
                     id:1,
                     img:'mono-06',
@@ -204,10 +209,14 @@ export default {
     components:{
         Panel: () => import('@/components/Panel.vue')
     },
+    mounted(){
+        this.getWorkItems()
+        this.getCategory()
+    },
     methods:{
-        getApi(payload, callback){
-            api.get('/content'+payload).then(response => {
-                callback(response)
+        getWorkItems(){
+            api.get('/api/workitems').then(response => {
+                this.image = response.data
             })
         },
         setDetailId(id){
@@ -221,8 +230,11 @@ export default {
         openFilter(){
             this.filter = true
         },
-        getCategory(category){
-            console.log(category)
+        getCategory(){
+            api.get('/api/category').then(response => {
+                console.log(response.data)
+                this.categories = response.data
+            })
         }
     }
 }

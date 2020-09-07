@@ -5,8 +5,44 @@
             <router-link to="/work">Work</router-link>
             <router-link to="/contact">Contact</router-link>
         </div>
+        <div v-if="showload" :class="'modal-overlay flex-center' + style">
+            <div class="slide">
+                <img class="loading logo" src="@/assets/esp-logo.png" alt="">
+            </div>
+            <transition name='fade'>
+                <img class="text" v-if="showtext" src="@/assets/projectArchive-text.png" alt="">
+            </transition>
+        </div>
     </div>
 </template>
+
+<script>
+export default {
+    data(){
+        return{
+            showtext:false,
+            showload:true,
+            style:''
+        }
+    },
+    created(){
+        this.open()
+    },
+    mounted(){
+    },
+    methods:{
+        open(){     
+            if ( ! sessionStorage.getItem( 'doNotShow' ) ) {
+                sessionStorage.setItem( 'doNotShow', true );
+                setTimeout(() => this.showload = false, 6000);
+                setTimeout(() => this.showtext = true, 3800);
+            }else{
+                this.showload=false;
+            }
+        }
+    }
+}
+</script>
 
 <style lang="css" scoped>
     .container{
@@ -25,5 +61,64 @@
         font-size: 28px;
         font-weight: bold;
         text-transform: uppercase;
+    }
+    .loading{
+        animation: rotate 1s infinite;
+    }
+    .slide{
+        animation: slide 1s;
+        animation-delay: 3s;
+        animation-fill-mode: forwards;
+    }
+
+    .flex-center{
+        display: flex;
+        justify-content: center;
+    }
+
+    .none{
+        display: none;
+    }
+
+    .text{
+        position: absolute;
+        padding-left: 98px;
+    }
+
+    .modal-overlay{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 98;
+        background-color: rgba(0,0, 0, 1);
+    }
+
+    .fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+    @keyframes rotate{
+        from {
+            transform: rotate(0);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes slide{
+        from {
+            margin-right: 0;
+            transform: scaleX(1) scaleY(1);
+        }
+        to {
+            margin-right: 12%;
+            transform: scaleX(0.75) scaleY(0.75);
+        }
     }
 </style>
