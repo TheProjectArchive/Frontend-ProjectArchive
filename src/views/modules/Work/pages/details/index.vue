@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="col-sm">
-            <workImages :content="content_image"></workImages>
+            <workImages :content="this.content_image"></workImages>
         </div>  
     </Panel>
 </template>
@@ -86,7 +86,7 @@ import api from '@/request.js'
             workImages:() =>import('../../components/work-images/index.vue'),
             Panel: () => import('@/components/Panel.vue')
         },
-        mounted(){
+        created(){
             this.getContentImages()
         },
         methods:{
@@ -94,10 +94,10 @@ import api from '@/request.js'
                 this.id = this.$route.params.detailId
                 api.get('/api/content/'+this.id)
                .then((response)=>{
-                   console.log(response.data)
                     this.data =  response.data
                     this.banner_image = response.data.banner_image.slice(2,-1)
                     this.content_image = response.data.content_image
+                    console.log(this.content_image)
                 })
             }
         }

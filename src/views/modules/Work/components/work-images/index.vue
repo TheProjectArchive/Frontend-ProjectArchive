@@ -1,22 +1,25 @@
 <template>
 <div class="work-images">
-    <div class="container-scroll">
-        <div class="container-grid" id="scroll-down">
-            <button @click="popOut()" v-for="content_images in content" :key="content_images.index">
-                <div>
-                    <img @click="getName(content.index)" class="border" width="280px" height="280px" :id="content.index" :src="'http://admin.theprojectarchive.com'+content.slice(2,-1)">
-                </div>
-            </button>
+    <div class="container-scroll" id="scroll-down" >
+        <div class="container-grid smooth" >
+                <button @click="popOut()" v-for="content_images in content" :key="content_images.index">
+                        <img @click="getName(content_images)" 
+                                class="border" 
+                                width="280px" 
+                                height="280px" 
+                                :id="content_images" 
+                                :src="'http://admin.theprojectarchive.com'+content_images">
+                </button>
         </div>
     </div>
     <transition name='fade' appear>
     <div class="modal-overlay flex-center" v-if="showModal">
         <button @click="showModal = false ">
-            <img class="border" width="700px" height="700px" :src="'http://localhost:8080/assets/image-work-details/'+this.modalImage">
+            <img class="border" width="700px" height="700px" :src="'http://admin.theprojectarchive.com'+this.modalImage">
         </button>
     </div>
     </transition>
-    <div class="scroll">
+    <div v-show="content.length>4" class="scroll">
         <img @click="scrollDown('scroll-down')" :class="'cursor arrow-scroll ' + className" src="@/assets/scroll-img.png" alt="">
     </div>
 </div>
@@ -25,6 +28,7 @@
 <style scoped>
     .work-images{
         display: flex;
+        padding-top: 13px;
     }
     .container-grid{
         display: grid;
@@ -134,15 +138,17 @@ export default {
                this.showModal = true;
            },
             getName(id){
-                var fullPath = document.getElementById(id).src;
-                var filename = fullPath.substring(48);
-                this.modalImage = filename;
+                // var fullPath = document.getElementById(id).src;
+                // var filename = fullPath.substring(34);
+                this.modalImage = id;
+
+                console.log(id)
             },
             dummy(){
                 console.log('dummy')
             },
             scrollDown(id){
-                document.getElementById(id).scrollBy({top: 30, behavior: 'smooth' })
+               document.getElementById(id).scrollBy({top: 587.5, left: 0, behavior: 'smooth' })
         },
        }
    }
