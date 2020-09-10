@@ -20,7 +20,7 @@
                 </div>            
             </div>
             <div class="container-send">
-                <a class="button bold white" href="">send</a>
+                <a class="button bold white" href="" @click="redirect">send</a>
             </div>
             <div class="address white align-left">
                 <div class="address">
@@ -38,6 +38,11 @@
     export default {
         components:{
             Panel: () => import('@/components/Panel.vue')
+        },
+        methods:{
+            redirect(){
+                window.location.replace(this.$route.path);
+            }
         }
     }
 </script>

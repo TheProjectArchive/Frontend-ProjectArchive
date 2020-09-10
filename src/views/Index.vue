@@ -63,7 +63,7 @@ export default {
         text-transform: uppercase;
     }
     .loading{
-        animation: rotate 1s infinite;
+        animation: rotate 1s 3;
     }
     .slide{
         animation: slide 1s;
@@ -114,11 +114,9 @@ export default {
     @keyframes slide{
         from {
             margin-right: 0;
-            transform: scaleX(1) scaleY(1);
         }
         to {
-            margin-right: 12%;
-            transform: scaleX(0.75) scaleY(0.75);
+            margin-right: 11%;
         }
     }
 </style>

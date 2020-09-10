@@ -1,16 +1,20 @@
 <template>
     <Panel>
-        <div class="detail-container col-sm">
-                <img style="width:700px; height:290px;" :src="'http://admin.theprojectarchive.com'+this.banner_image" alt="">
+        <div data-aos="fade-zoom-in"  class="detail-container">
+                <img style="width:700px; max-height:290px; padding-top:8px" :src="'http://admin.theprojectarchive.com'+this.banner_image" alt="">
+                <div style="text-align: left; ">
+                    <label class="url" style="font-size:13px; margin-bottom:35px; " v-if="data.url_content">{{data.url_content}}</label>
+                    <label style="font-size:24px; margin-bottom:35px;" v-else>nothing to show</label>
+                </div>
                 <div class="text-detail">
                    <div class="title">{{ data.nama_brand }}</div>
                    <label style="font-size:24px; margin-bottom:35px;">{{data.category}}</label>
-                   <div style="font-size:12px; height:70px ">
+                   <div style="font-size:12px; height:70px;">
                        {{ data.description }}
                    </div>
             </div>
         </div>
-        <div class="col-sm">
+        <div>
             <workImages :content="this.content_image"></workImages>
         </div>  
     </Panel>
@@ -40,6 +44,11 @@
     .title{
         font-size: 40px;
         font-weight:bold;
+    }
+
+    .url{
+        font-style: italic;
+        font-weight: 400;
     }
     
 </style>
@@ -97,7 +106,7 @@ import api from '@/request.js'
                     this.data =  response.data
                     this.banner_image = response.data.banner_image.slice(2,-1)
                     this.content_image = response.data.content_image
-                    console.log(this.content_image)
+                    console.log(response.data)
                 })
             }
         }

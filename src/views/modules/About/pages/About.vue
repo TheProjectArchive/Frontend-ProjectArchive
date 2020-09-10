@@ -33,9 +33,18 @@ export default {
 </script>
 
 <style scoped>
+@media only screen and (max-width: 600px) {
   .text{
+    font-size:12px;
+    text-transform: uppercase; 
+    text-align:left;
+  }
+}
+@media only screen and (min-width: 600px) {
+.text{
     font-size:30px;
     text-transform: uppercase; 
     text-align:left;
   }
+}
 </style>

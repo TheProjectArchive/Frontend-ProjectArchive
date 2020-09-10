@@ -3,13 +3,12 @@
       <div class="main">
         <router-view/>
       </div>
+    <Header/>
     <Footer/>
-    <Header class="test"/>
   </div>
 </template>
 
 <style>
-
   #app {
     font-family: 'Montserrat', sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -31,9 +30,18 @@
   color: #42b983;
 }
 
+@media only screen and (max-width: 600px) {
   .main{
-    margin-top: 6em;
+    padding-top: 3em;
   }
+}
+  
+@media only screen and (min-width: 600px) {
+  .main{
+    padding-top: 6em;
+  }
+}
+
 .root{
   background: black;
 }

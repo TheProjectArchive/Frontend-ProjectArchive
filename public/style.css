@@ -27,3 +27,7 @@
     justify-content: center;
     align-items: center;
 }
+
+.text-normal{
+    font-weight: 600;
+}

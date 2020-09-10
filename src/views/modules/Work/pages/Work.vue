@@ -1,9 +1,5 @@
 <template>
     <Panel>
-        <div>
-            <img v-if="filter==false" @click="openFilter" class="menu-category cursor" src="@/assets/menu-img.png" alt="">
-            <img v-else @click="filter=false" class="menu-category cursor" style="margin-right:4px" src="@/assets/close-filter.png" alt="">
-        </div>
         <div data-aos="fade-zoom-in" id="scroll-down" class="container white grid">
             <div v-for="images in image" :key="images.id" style="height:300px">
                 <img class="cursor cover-img" @click="setDetailId(images.id)" v-if="images.cover_image!=''" :src="'http://admin.theprojectarchive.com'+images.cover_image.slice(2,-1)" alt="content">
@@ -16,29 +12,53 @@
         <transition name='fade' appear>
         <div class="modal-overlay flex-center " v-if="filter">
             <div class="filter filter-position">
-                <button v-for="category in categories" :key="category.index" > {{category.category}}</button>
+                <button @click="getWorkItems">All</button>
+                <div v-for="category in categories" :key="category.index" > <button @click="getByCategory(category.category)">{{category.category}}</button></div>
             </div>
         </div>
         </transition>
+        <div class="menu-category">
+            <img v-if="filter==false" @click="openFilter" class="filter-icon cursor" src="@/assets/menu-img.png" alt="">
+            <img v-else @click="filter=false" class="filter-icon cursor" src="@/assets/close-filter.png" alt="">
+        </div>
     </Panel>
 </template>
 
 <style scoped>
+    @media (min-width: 1281px) {
+    
+        .grid{
+            display: grid;
+            grid-column-gap: 10px;
+            grid-row-gap: 10px;
+            grid-template-columns: auto auto auto auto;
+        }
 
-  .grid{
-        display: grid;
-        grid-column-gap: 10px;
-        grid-row-gap: 10px;
-        grid-template-columns: auto auto auto auto;
+        .cover-img{
+            width: 300px;
+            height: 300px;
+        }
+    
+    }
+
+    @media (min-width: 1025px) and (max-width: 1280px) {
+        .grid{
+            display: grid;
+            grid-column-gap: 10px;
+            grid-row-gap: 10px;
+            grid-template-columns: auto auto auto auto;
+        }
+
+        .cover-img{
+            width: 200px;
+            height: 200px;
+        }
     }
     
     .cursor{
         cursor: pointer;
     }
-    .cover-img{
-        width: 300px;
-        height: 300px;
-    }
+    
     .arrow-scroll{
         padding-left: 50px;
         width: 20px;
@@ -64,8 +84,12 @@
     }
     .menu-category{
         position: fixed;
-        left: 50px;
+        left: 0;
+        background-color: black;
+    }
+    .filter-icon{
         padding-right: 50px;
+        padding-left: 85px;
     }
     .modal-overlay{
         position: absolute;
@@ -74,7 +98,7 @@
         right: 0;
         bottom: 20px;
         z-index: 98;
-        background-color: rgba(0,0, 0, 0.5);
+        background-color: rgba(0,0, 0, 0.9);
         margin-bottom: 65px;
     }
     .fade-enter-active,
@@ -106,8 +130,7 @@
         outline: inherit;
     }
     button:hover{
-        font-weight: 700;
-        text-shadow: 2px 2px 8px white;
+        text-decoration: underline;
     }
 </style>
 
@@ -231,10 +254,17 @@ export default {
             this.filter = true
         },
         getCategory(){
-            api.get('/api/category').then(response => {
-                console.log(response.data)
+            api.get('/api/filterList').then(response => {
                 this.categories = response.data
             })
+        },
+        getByCategory(category){
+            let param = category.replace(/\s/g, "-")
+            api.get('/api/workitemsByCategory/'+param).then(response => {
+                console.log(response.data)
+                this.image = response.data
+            })
+            console.log(param)
         }
     }
 }

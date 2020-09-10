@@ -7,8 +7,8 @@
 <style scoped>
     .panel{
         color: white;
-        margin-left: 80px;
-        margin-right: 80px;
+        margin-left: 10%;
+        margin-right: 10%;
         top: 0;
         display: flex;
         justify-content: center;
