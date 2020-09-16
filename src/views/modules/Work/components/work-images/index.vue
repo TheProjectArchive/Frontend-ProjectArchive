@@ -1,5 +1,5 @@
 <template>
-<div class="work-images">
+<div data-aos="fade-zoom-in" data-aos-duration="1000" class="work-images">
     <div class="container-scroll" id="scroll-down" >
         <div class="container-grid smooth" >
                 <button @click="popOut()" v-for="content_images in content" :key="content_images.index">
@@ -43,6 +43,7 @@
     .container-scroll{
         overflow: scroll;
         height:585px;
+        scrollbar-width: none;
     }
     .container-scroll::-webkit-scrollbar {
         display: none;

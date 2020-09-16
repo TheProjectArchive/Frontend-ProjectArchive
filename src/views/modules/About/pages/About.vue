@@ -1,6 +1,6 @@
 <template>
   <Panel>
-    <div data-aos="fade-zoom-in" class="text">
+    <div data-aos="fade-zoom-in" data-aos-duration="1200" class="text">
       {{description}}
     </div>
   </Panel>

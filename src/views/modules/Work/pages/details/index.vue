@@ -1,10 +1,10 @@
 <template>
     <Panel>
-        <div data-aos="fade-zoom-in"  class="detail-container">
+        <div data-aos="fade-zoom-in" data-aos-duration="1000" class="detail-container">
                 <img style="width:700px; max-height:290px; padding-top:8px" :src="'http://admin.theprojectarchive.com'+this.banner_image" alt="">
                 <div style="text-align: left; ">
-                    <label class="url" style="font-size:13px; margin-bottom:35px; " v-if="data.url_content">{{data.url_content}}</label>
-                    <label style="font-size:24px; margin-bottom:35px;" v-else>nothing to show</label>
+                    <label class="url" v-if="data.url_content" @click="goToWebsite(data.url_content)">{{data.url_content}}</label>
+                    <label class="url" v-else>nothing to show</label>
                 </div>
                 <div class="text-detail">
                    <div class="title">{{ data.nama_brand }}</div>
@@ -49,6 +49,8 @@
     .url{
         font-style: italic;
         font-weight: 400;
+        font-size:13px; 
+        margin-bottom:35px;
     }
     
 </style>
@@ -108,6 +110,9 @@ import api from '@/request.js'
                     this.content_image = response.data.content_image
                     console.log(response.data)
                 })
+            },
+            goToWebsite(url){
+                window.open("https://"+url)
             }
         }
     }

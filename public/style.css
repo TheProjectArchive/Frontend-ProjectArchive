@@ -31,3 +31,7 @@
 .text-normal{
     font-weight: 600;
 }
+
+.pointer{
+    cursor: pointer;
+}

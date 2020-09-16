@@ -1,6 +1,6 @@
 <template>
     <Panel>
-        <div data-aos="fade-zoom-in" id="scroll-down" class="container white grid">
+        <div data-aos="fade-zoom-in" data-aos-duration="1200" id="scroll-down" class="container white grid">
             <div v-for="images in image" :key="images.id" style="height:300px">
                 <img class="cursor cover-img" @click="setDetailId(images.id)" v-if="images.cover_image!=''" :src="'http://admin.theprojectarchive.com'+images.cover_image.slice(2,-1)" alt="content">
                 <img class="cover-img" v-else :src="'http://localhost:8080/assets/not-found.jpg'" alt="not found">
@@ -67,10 +67,12 @@
     .container{
         overflow: scroll;
         height:610px;
+        scrollbar-width: none;
     }
     .container::-webkit-scrollbar{
         display: none;
     }
+
     @keyframes gbounce { 
         0% { transform: translateY(0); }
         30% { transform: translateY(-30px); }
