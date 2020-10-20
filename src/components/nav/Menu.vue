@@ -49,7 +49,6 @@ export default {
     }
 
     .grid-container{
-        margin-top: 35px;
         padding-bottom: 10px;
         display: grid;
         grid-template-columns: 200px 135px 200px;
@@ -57,5 +56,10 @@ export default {
     .menu{
         display: flex; 
         justify-content: center;
+    }
+    @media screen and (max-width: 1060px) {
+        .menu{
+            display: none;   
+        }
     }
 </style>

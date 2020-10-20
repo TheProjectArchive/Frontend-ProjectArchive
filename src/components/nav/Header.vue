@@ -1,10 +1,14 @@
 <template>
     <div class="header">
-        <div class="grid-container">
-                <a class="esp-logo" @click="clearSession" href="/"><img src="@/assets/esp-logo.png" alt="logo"></a>
-            <Menu v-if="!index && !detail"/>
-            <div v-else/>
-            <div class="flex-container">
+        <div class="row align-items-start">
+            <div class="col-md-4 flex-center">
+                <a class="brand-logo" @click="clearSession" href="/"><img class="esp-logo" src="@/assets/esp-logo.png" alt="logo"></a>
+            </div>
+            <div class="col-md-4">
+                <Menu v-if="!index && !detail"/>
+                <div v-else/>
+            </div>
+            <div class="col-md-4">
                 <a href="/work">
                     <img class="project-archive-text" src="@/assets/projectArchive-text.png" alt="text">
                 </a>
@@ -38,31 +42,30 @@ export default {
 
 <style lang="css" scoped>
     .header{
-        position: fixed;
+        padding-top: 40px;
+        padding-bottom: 40px;
           top: 0;
           width: 100%;
           left: 0;
+          height: 20%;
           background-color: black;
     }
-    .grid-container{
-        display: grid;
-        grid-template-columns: auto auto auto;
-        padding-bottom: 30px;
-    }
-    .flex-container{
-        display: flex;
-        justify-content: flex-end;
-    }
     .esp-logo{
-        margin: 25px 157px 0 80px;
         width: 38px;
         height: 36px;
     }
     .project-archive-text{
         width: 200.41px;
         height: 24.85px;
-        margin-top: 30px;
-        margin-right: 80px;
     }
     
+    .brand-logo{
+        padding-right: 162px;
+    }
+
+    .flex-center{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 </style>

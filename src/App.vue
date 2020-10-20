@@ -1,9 +1,9 @@
 <template>
   <div id="app">
+    <Header/>
       <div class="main">
         <router-view/>
       </div>
-    <Header/>
     <Footer/>
   </div>
 </template>
@@ -17,10 +17,6 @@
     color: #2c3e50;
   }
 
-#nav {
-  padding: 30px;
-}
-
 #nav a {
   font-weight: bold;
   color: #2c3e50;
@@ -29,18 +25,7 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
-
-@media only screen and (max-width: 600px) {
-  .main{
-    padding-top: 3em;
-  }
-}
   
-@media only screen and (min-width: 600px) {
-  .main{
-    padding-top: 6em;
-  }
-}
 
 .root{
   background: black;
