@@ -46,7 +46,6 @@ export default {
         padding-bottom: 40px;
           top: 0;
           width: 100%;
-          left: 0;
           height: 20%;
           background-color: black;
     }

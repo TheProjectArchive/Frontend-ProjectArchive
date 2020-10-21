@@ -1,22 +1,20 @@
 <template>
-  <Panel>
-    <div data-aos="fade-zoom-in" data-aos-duration="1200" class="text">
-      {{description}}
-    </div>
-  </Panel>
+<div class="description-container">
+   <div data-aos="fade-zoom-in" data-aos-duration="1200" class="col-md-12 description text">
+        {{description}}
+      </div>
+</div>
+ 
+    
 </template>
 
 <script>
 import api from '@/request.js'
-import Panel from "@/components/Panel";
 export default {
   data(){
     return{
       description:''
     }
-  },
-  components:{
-    Panel,
   },
   mounted(){
     this.getDescription()
@@ -33,18 +31,21 @@ export default {
 </script>
 
 <style scoped>
-@media only screen and (max-width: 600px) {
-  .text{
-    font-size:12px;
+  .description{
+    font-size:2vw;;
     text-transform: uppercase; 
-    text-align:left;
+    text-align: left;
+    color: white;
+    line-height: 1.1;
   }
-}
-@media only screen and (min-width: 600px) {
-.text{
-    font-size:30px;
-    text-transform: uppercase; 
-    text-align:left;
+  .description-container{
+    padding-left: 9%;
+    padding-right: 9%;
+    padding-top: 3%;
   }
-}
+  /* @media screen and (max-height:728px){
+    .text{
+      font-size: 25px;
+    }
+  } */
 </style>

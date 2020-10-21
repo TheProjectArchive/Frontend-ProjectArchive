@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container-2">
         <div data-aos="fade-zoom-in" data-aos-duration="1500" class="container">
             <router-link to="/about">About</router-link>
             <router-link to="/work">Work</router-link>
@@ -51,8 +51,8 @@ export default {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 80vh;
         top:0;
+        height: 65vh;
     }
     a{
         text-decoration: none;

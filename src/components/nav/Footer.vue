@@ -1,19 +1,20 @@
 <template>
     <div class="bottoms">
-        <div v-if="index" style="height:23px;"></div>
-        <div v-else-if="detail" class="container-flex">
-            <a style="text-transform:uppercase; 
-                color:white; 
-                text-decoration: none; 
-                font-weight: bold;" href="/work">back
-            </a>
-        </div>
-        <div v-else class="container-flex"><a class="upppercase bold white none" href="/">back</a></div>
-        © 2019
-        <a @click="openInstagram" class="link">
-            ProjectArchive™
-        </a>
-         All Rights Reserved.
+         <div class="footer">
+             <div v-if="index"></div>
+            <div v-else-if="detail" class="button-back">
+                <a class="upppercase bold white none" href="/work">back
+                </a>
+            </div>
+            <div v-else class="button-back"><a class="upppercase bold white none" href="/">back</a></div>
+            <div>
+                © 2019
+                <a @click="openInstagram" class="link">
+                    ProjectArchive™
+                </a>
+                All Rights Reserved. 
+            </div>
+         </div>
     </div>
 </template>
 
@@ -48,13 +49,15 @@ export default {
 </script>
 
 <style lang="css" scoped>
-    .container-flex{
+    .button-back{
         display: flex;
-        width: 95%;
         justify-content: flex-end;
         font-size: 17px;
+        margin-right: 11vw;
     }
-    .bottoms{
+    .footer{
+        display: flex;
+        flex-direction: column;
         background-color: black;
         color:white;
         width: 100%;
@@ -62,12 +65,11 @@ export default {
         font-size: 13px;
         font-family: 'Montserrat', sans-serif;
         font-weight: lighter;
-        padding-top: 30px;
-        padding-bottom: 30px;
 
+        padding-top: 30px ;
+        padding-bottom: 30px ;
+        bottom: 0%;
         position: fixed;
-        bottom: 0;
-        left: 0;
     }
     .link{
         text-decoration: none;
