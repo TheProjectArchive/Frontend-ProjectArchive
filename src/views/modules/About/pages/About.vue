@@ -32,7 +32,7 @@ export default {
 
 <style scoped>
   .description{
-    font-size:2vw;;
+    font-size:2vw;
     text-transform: uppercase; 
     text-align: left;
     color: white;

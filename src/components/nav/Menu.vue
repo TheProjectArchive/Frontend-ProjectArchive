@@ -1,22 +1,40 @@
 <template>
     <div class="menu">
         <div class="grid-container">
-            <a  v-bind:class="'menu '+className.about" href="/about">About</a>
-            <a  v-bind:class="'menu '+className.work" href="/work">Work</a>
-            <a  v-bind:class="'menu '+className.contact" href="/contact">Contact</a>
+            <a  v-bind:class="'link '+className.about" href="/about">About</a>
+            <a  v-bind:class="'link '+className.work" href="/work">Work</a>
+            <a  v-bind:class="'link '+className.contact" href="/contact">Contact</a>
         </div>
+        <dropdown :listMenu="nav"></dropdown>
     </div>
 </template>
 
 <script>
 export default {
+    components:{
+        Dropdown:() => import('./DropdownMenu') 
+    },
     data(){
         return{
             className:{
                 about:'',
                 work:'',
                 contact:''
-            }
+            },
+            nav:[
+                {
+                    name: 'About',
+                    link: '/about'
+                },
+                {
+                    name: 'Work',
+                    link: '/work'
+                },
+                {
+                    name: 'Contact',
+                    link: '/contact'
+                },
+            ]
         }
     },
     mounted(){
@@ -37,7 +55,7 @@ export default {
 </script>
 
 <style scoped>
-    .menu{
+    .link{
         text-transform: uppercase;
         color: white;
         text-decoration: none;
@@ -57,9 +75,19 @@ export default {
         display: flex; 
         justify-content: center;
     }
+    .flex-container{
+        display: none;
+    }
     @media screen and (max-width: 1060px) {
-        .menu{
-            display: none;   
+        .grid-container{
+            display: none;
+        }
+
+        .flex-container{
+            display: flex;
+            flex-direction: column;
         }
     }
+
+    
 </style>
