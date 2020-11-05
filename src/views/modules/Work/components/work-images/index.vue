@@ -122,16 +122,6 @@ export default {
      this.getContent()
    },
    methods:{
-    //    getDetailImages(){
-    //        request.get('/api/v3/certificates/tracking')
-    //            .then((response)=>{
-    //                 if(response.data.success){
-    //                     console.log(response.data.data)
-    //                 }else{
-    //                     alert.error(response.data.message)
-    //                 }
-    //             })
-    //        },
             getContent(){
                console.log(this.content)
             },
@@ -139,14 +129,8 @@ export default {
                this.showModal = true;
            },
             getName(id){
-                // var fullPath = document.getElementById(id).src;
-                // var filename = fullPath.substring(34);
                 this.modalImage = id;
-
                 console.log(id)
-            },
-            dummy(){
-                console.log('dummy')
             },
             scrollDown(id){
                document.getElementById(id).scrollBy({top: 587.5, left: 0, behavior: 'smooth' })
