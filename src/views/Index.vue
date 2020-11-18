@@ -55,7 +55,6 @@ export default {
         height: 65vh;
     }
     a{
-        text-decoration: none;
         color: white;
         padding-bottom: 10px;
         font-size: 28px;

@@ -116,6 +116,12 @@
     button:hover{
         text-decoration: underline;
     }
+
+    @media screen and (min-height: 1080) {
+        .dropdown{
+            display: none;
+        }
+    }
 </style>
 
 <script>

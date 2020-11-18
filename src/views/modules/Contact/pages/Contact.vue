@@ -1,44 +1,48 @@
 <template>
-    <Panel>
-        <div id="Contact" data-aos="fade-zoom-in" data-aos-duration="1200" class="container">
-            <form class="container-send"   @submit.prevent="sendEmail">
+    <div class="container-contact">
+        <div id="Contact" data-aos="fade-zoom-in" data-aos-duration="1200" class="row">
+            <form class="col-md-8 flex-center compo-con"   @submit.prevent="sendEmail">
                 <div>
-                    <div class="input-text grid-container align-left bold white">
-                        <label for="name">name</label>
-                        <input required style="width: 530px" id="name" type="text" name="name">
+                    <div class="input-form">
+                        <label class="uppercase white" for="name">name</label>
+                        <input class="text-input" required id="name" type="text" name="name">
                     </div>
-                    <div class="input-text grid-container align-left bold white">
-                        <label for="name">email</label>
-                        <input required style="width: 530px" id="email"  type="email" name="email">
+                    <div class="input-form">
+                        <label class="uppercase white" for="name">email</label>
+                        <input class="text-input" required id="email"  type="email" name="email">
                     </div>
-                    <div class="input-text grid-container align-left bold white">
-                        <label for="name">phone</label>
-                        <input required style="width: 530px" id="phone" type="tel" name="phone">
+                    <div class="input-form">
+                        <label class="uppercase white" for="name">phone</label>
+                        <input class="text-input" required id="phone" type="tel" name="phone">
                     </div>
-                    <div class="input-text grid-container align-left bold white">
-                        <label for="name">message</label>
-                        <textarea required id="message" style="width: 530px; height:300px; resize:none;" name="message"></textarea>
+                    <div class="input-form">
+                        <label class="uppercase white" for="name">message</label>
+                        <textarea required id="message" name="message"></textarea>
                     </div>
                 </div>
-                <input class="button bold white"  type="submit" value="Send">
+                <div class="flex-justify-end info">
+                    <input class="bold white button uppercase"  type="submit" value="Send">
+                </div>
             </form>
-            <div class="clearfix"/>
-            <div class="address white align-left">
-                <div>
-                    South Jakarta, Indonesia. <br>
-                    contact@projectarchive.com <br>
-                    +62 81317444776 <br><br>
-                    Follow me
-                    <span class="pointer" @click="redirectToInstagram()">@project___archive</span>
+            <div class="col-md-4 white compo-con container-info">
+                <div class="info">
+                    <div style="text-align:left">
+                        South Jakarta, Indonesia. <br>
+                        contact@projectarchive.com <br>
+                        +62 81317444776 <br><br>
+                        Follow me
+                        <span class="pointer" @click="redirectToInstagram()">@project___archive</span>
+                    </div>
                 </div>
             </div>
         </div>
-        <div v-show="modal" name="modal-thank-you" class="modal flex-center" >
-            <h1>
+        <div v-show="modal" id="modal-thanks" name="modal-thank-you" class="popup flex-center white">
+            <div>
                 thank you
-            </h1>
+            </div>
+                
         </div>
-    </Panel>
+    </div>     
 </template>
 
 <script>
@@ -50,9 +54,6 @@
                 modal:false
             }
         },
-        components:{
-            Panel: () => import('@/components/Panel.vue')
-        },
         methods:{
             redirect(){
                 this.modal = true;
@@ -60,7 +61,7 @@
                     function () {
                         window.location.replace("/contact")
                     }.bind(this),
-                    3000
+                    2000
                         );
                 console.log('asdad')
             },
@@ -84,77 +85,67 @@
 </script>
 
 <style scoped>
-    .container{
-        color: white;
-        height: 70vh;
-        top: 0;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-    }
-    .input-text{
-        padding-top: 13px;
-        padding-bottom: 13px;
-    }
-    input{
-        font-family: 'Montserrat', sans-serif;
-    }
-    textarea{
-        font-family: 'Montserrat', sans-serif;
-    }
-    label{
-        font-size: 12px;
-        text-transform: uppercase;
-    }
-    .grid-container{
-        display: grid;
-        grid-template-columns: 120px auto;
-    }
-    .container-send{
-        display: flex;
-        align-items: flex-start;
-    }
-    .button{
-        text-decoration: none;
-        text-transform: uppercase;
-    }
-    .address{
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: flex-end;
-        color:white;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: lighter;
-        font-size: 20px;
-        padding-left: 100px;
-        height: 440px;
-        width: 350px;
-        text-align:left
-    }
-    input[type=submit]{
-        background-color: black;
-        border: none;
-        color: white;
-        text-decoration: none;
-        margin: 445px 15px 0;
-        padding: 0;
-        cursor: pointer;
-        font-size: 16px;
-    }
-    .modal{
+    .popup{
+        position: absolute;
         text-transform: uppercase;
         font-size: 40px;
-        position: absolute;
         top: 12%;
         left: 0;
         right: 0;
         bottom: 12%;
         z-index: 98;
         background-color: rgba(0,0, 0, 1);
+        font-weight: 700;
     }
-    .clearfix{
-        width: 200px;
+    .input-form{
+       display: flex;
+       text-align: left;
+    }
+    label{
+        float: left;
+        width: 10vw;
+        font-size: 1vw;
+    }
+    .button{
+        background:none;
+        border:none;
+        margin:0;
+        padding-left: 20px;
+        cursor: pointer;
+        font-size: 1vw;
+    }
+    .flex-justify-end{
+        height: 160px;
+        width: 100px;
+        display: flex;
+        justify-content: end;
+    }
+    .text-input{
+        width: 30vw;
+        height: 20px;
+        font-size: 12px;
+        margin-bottom: 20px;
+    }
+    textarea{
+        resize:none;
+        width: 30vw;
+        height: 20vh;
+    }
+    .compo-con{
+        height: 70vh;
+    }
+    .end{
+        display: flex;
+        align-items: flex-end;
+    }
+    .info{
+        height: 36vh;
+        display: flex;
+        align-items: flex-end;
+    }
+    .container-info{
+        display: flex;
+        align-items: center;
     }
 </style>
 
