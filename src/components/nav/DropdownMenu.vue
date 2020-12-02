@@ -7,8 +7,8 @@
 			c4.267,4.053,10.88,4.053,15.147,0l195.52-195.733l27.2,27.307L256.027,384.887z" fill="#FFF"/>
         </svg>
         <div class="sub-menu" data-aos="fade-zoom-in" data-aos-duration="1000" v-if="isOpen==true">
-            <div class="menu-items" v-for="(item, i) in listMenu" :key="i">
-                <a :href="item.link">{{ item.name }}</a>
+            <div @click="isOpen = !isOpen" class="menu-items" v-for="(item, i) in listMenu" :key="i">
+                <router-link :to="item.link">{{ item.name }} </router-link>
             </div>
         </div> 
     </div>
@@ -16,10 +16,15 @@
 
 <script>
 export default {
-    props: ['','listMenu'],
+    props: ['listMenu'],
     data(){
         return {
             isOpen: false
+        }
+    },
+    methods:{
+        test(){
+            console.log('tolol');
         }
     }
 }
