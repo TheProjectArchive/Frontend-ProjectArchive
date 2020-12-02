@@ -70,8 +70,8 @@ export default {
         font-family: 'Montserrat', sans-serif;
         font-weight: lighter;
 
-        padding-top: 30px ;
-        padding-bottom: 30px ;
+        padding-top: 2% ;
+        padding-bottom: 2% ;
         bottom: 0%;
         position: fixed;
     }
