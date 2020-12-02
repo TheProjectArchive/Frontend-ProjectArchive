@@ -29,8 +29,12 @@ export default {
         this.open()
     },
     mounted(){
+        this.logHostname
     },
     methods:{
+        logHostname(){
+            console.log(window.location.hostname)
+        },
         open(){     
             if ( ! sessionStorage.getItem( 'doNotShow' ) ) {
                 sessionStorage.setItem( 'doNotShow', true );

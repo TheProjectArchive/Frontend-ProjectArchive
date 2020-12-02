@@ -3,10 +3,10 @@
          <div class="footer">
              <div v-if="index"></div>
             <div v-else-if="detail" class="button-back">
-                <a class="upppercase bold white none" href="/work">back
+                <a class="uppercase bold white none" @click="goBack()" >back
                 </a>
             </div>
-            <div v-else class="button-back"><a class="upppercase bold white none" href="/">back</a></div>
+            <div v-else class="button-back"><a class="uppercase bold white none" href="/">back</a></div>
             <div>
                 © 2019
                 <a @click="openInstagram" class="link">
@@ -43,6 +43,9 @@ export default {
         },
         conName(){
             console.log(this.$route.name)
+        },
+        goBack(){
+            window.history.back();
         }
     }
 }
@@ -54,6 +57,7 @@ export default {
         justify-content: flex-end;
         font-size: 17px;
         margin-right: 11vw;
+        cursor: pointer;
     }
     .footer{
         display: flex;

@@ -1,11 +1,11 @@
 <template>
     <div class="row">
         <div class="col-sm flex-center">
-            <img v-if="filter==false" @click="openFilter" src="@/assets/menu-img.png" alt="">
-            <img v-else @click="filter=false" src="@/assets/close-filter.png" alt="">
+            <img v-if="filter==false" @click="openFilter" src="@/assets/menu-img.png" alt="" class="button-filter">
+            <img v-else @click="filter=false" src="@/assets/close-filter.png" alt="" class="button-filter">
         </div>
         <div class="col-sm">
-            <div data-aos="fade-zoom-in" data-aos-duration="1200" id="scroll-down" class="container white image-container">
+            <div data-aos="fade-zoom-in" data-aos-duration="1200" id="scroll-down" class="container white image-container" v-lazy-container="{ selector: 'div' }">
                 <div v-for="images in image" :key="images.id">
                     <img class="cursor cover-img" @click="setDetailId(images.id)" v-if="images.cover_image!=''" :src="'http://admin.theprojectarchive.com'+images.cover_image.slice(2,-1)" alt="content">
                     <img class="cover-img" v-else :src="'http://localhost:8080/assets/not-found.jpg'" alt="not found">
@@ -26,16 +26,20 @@
     </div>
 </template>
 
-<style scoped>
-    .image-container{
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(16.8rem, 1fr));
-        grid-template-rows: repeat(auto-fit, minmax(16.8rem, 1fr));
-    }
+<style lang="stylus">
+    .image-container
+        display grid;
+        grid-template-columns repeat(auto-fit, minmax(16.8rem, 1fr));
+        grid-template-rows repeat(auto-fit, minmax(16.8rem, 1fr));
+    
 
     .cover-img{
         border: 5px solid black;
         width: 100%;
+    }
+
+    .button-filter{
+        cursor: pointer;
     }
     
     .cursor{
@@ -45,6 +49,7 @@
     .arrow-scroll{
         width: 20px;
         height: 35px;
+        cursor: pointer;
     }
     .container{
         overflow: scroll;
@@ -230,8 +235,7 @@ export default {
             })
         },
         setDetailId(id){
-            let routeData = this.$router.resolve({name: 'Detail', params: {detailId: id}});
-            window.open(routeData.href, '_self');
+            this.$router.push({name: 'Detail', params: {detailId: id}});
         },
         scrollDown(id){
             this.className=''

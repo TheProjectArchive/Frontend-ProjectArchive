@@ -41,11 +41,5 @@ export default {
   .description-container{
     padding-left: 9%;
     padding-right: 9%;
-    padding-top: 3%;
   }
-  /* @media screen and (max-height:728px){
-    .text{
-      font-size: 25px;
-    }
-  } */
 </style>

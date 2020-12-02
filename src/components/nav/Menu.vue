@@ -1,9 +1,12 @@
 <template>
     <div class="menu">
         <div class="grid-container">
-            <a  v-bind:class="'link '+className.about" href="/about">About</a>
-            <a  v-bind:class="'link '+className.work" href="/work">Work</a>
-            <a  v-bind:class="'link '+className.contact" href="/contact">Contact</a>
+            <!-- <a  about" href="/about">About</a>
+            <a  work" href="/work">Work</a>
+            <a  contact" href="/contact">Contact</a> -->
+            <router-link  to="/about">About</router-link>
+            <router-link  to="/work">Work</router-link>
+            <router-link  to="/contact">Contact</router-link>
         </div>
         <dropdown :listMenu="nav"></dropdown>
     </div>
@@ -55,14 +58,16 @@ export default {
 </script>
 
 <style scoped>
-    .link{
+    a:hover{
+        text-decoration: none;
+    }
+    a{
         text-transform: uppercase;
         color: white;
         text-decoration: none;
         font-weight: bold;
     }
-
-    .route{
+    .router-link-active{
         color: #434343;
     }
 
