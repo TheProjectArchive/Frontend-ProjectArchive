@@ -6,11 +6,11 @@
             <router-link to="/contact">Contact</router-link>
         </div>
         <div v-if="showload" :class="'modal-overlay flex-center' + style">
-            <div class="slide">
+            <div :class="classSlide">
                 <img class="loading logo" src="@/assets/esp-logo.png" alt="">
             </div>
             <transition name='fade'>
-                <img class="text" v-if="showtext" src="@/assets/projectArchive-text.png" alt="">
+                <img v-if="showtext" src="@/assets/projectArchive-text.png" alt="">
             </transition>
         </div>
     </div>
@@ -22,7 +22,8 @@ export default {
         return{
             showtext:false,
             showload:true,
-            style:''
+            style:'',
+            classSlide: ''
         }
     },
     created(){
@@ -38,8 +39,9 @@ export default {
         open(){     
             if ( ! sessionStorage.getItem( 'doNotShow' ) ) {
                 sessionStorage.setItem( 'doNotShow', true );
+                this.classSlide = 'slide'
                 setTimeout(() => this.showload = false, 6000);
-                setTimeout(() => this.showtext = true, 3800);
+                setTimeout(() => (this.showtext = true, this.classSlide = 'clear-fix'), 3800);
             }else{
                 this.showload=false;
             }
@@ -73,19 +75,17 @@ export default {
         animation-delay: 3s;
         animation-fill-mode: forwards;
     }
+    .setSlide{
+        margin-right: 0 ;
+    }
+
+    .clear-fix{
+        padding:20px;
+    }
 
     .flex-center{
         display: flex;
         justify-content: center;
-    }
-
-    .none{
-        display: none;
-    }
-
-    .text{
-        position: absolute;
-        padding-left: 98px;
     }
 
     .modal-overlay{
@@ -93,7 +93,7 @@ export default {
         top: 0;
         left: 0;
         right: 0;
-        bottom: 0;
+        height: 100%;
         z-index: 98;
         background-color: rgba(0,0, 0, 1);
     }
@@ -119,7 +119,7 @@ export default {
             margin-right: 0;
         }
         to {
-            margin-right: 11%;
+            margin-right: 260px;
         }
     }
 </style>

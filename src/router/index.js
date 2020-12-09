@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import About from '../views/modules/About/pages/About.vue'
+import About from '../views/modules/About/pages/index.vue'
 import Index from '../views/Index.vue'
 import Contact from '../views/modules/Contact/pages/Contact.vue'
 import Work from '../views/modules/Work/pages/Work.vue'

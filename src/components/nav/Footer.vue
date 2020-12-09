@@ -72,7 +72,7 @@ export default {
 
         padding-top: 2% ;
         padding-bottom: 2% ;
-        bottom: 0%;
+        bottom: 0;
         position: fixed;
     }
     .link{

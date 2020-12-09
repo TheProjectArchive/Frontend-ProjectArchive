@@ -44,11 +44,6 @@
 </template>
 
 <style scoped>
-.flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .left-container {
   padding-left: 9%;

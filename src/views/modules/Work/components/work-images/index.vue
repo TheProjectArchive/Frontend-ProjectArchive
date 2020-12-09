@@ -1,5 +1,5 @@
 <template>
-<div style="display: flex">
+<div>
   <div data-aos="fade-zoom-in" data-aos-duration="1000" class="container container-grid">
     <div v-for="content_images in content" :key="content_images.index" >
       <img
@@ -10,8 +10,31 @@
       />
     </div>
   </div>
+  <transition name="fade" appear>
+      <div class="modal-overlay flex-center" v-if="modalContent">
+          <div class="close-modal">
+            <img
+              v-if="filter == true"
+              @click="filter = false"
+              src="@/assets/close-filter.png"
+              alt=""
+              class="button-close"
+            />
+          </div>
+        <div class="container-category scrollable-container ">
+          <div v-for="category in categories" :key="category.index">
+            <button
+              class="category-button white"
+              @click="getByCategory(category.category)"
+            >
+              {{ category.category }}
+            </button>
+          </div>
+        </div>
+          <div class="clearfix"></div>
+      </div>
+    </transition>
 </div>
-  
 </template>
 
 <style scoped>
@@ -20,7 +43,7 @@
         grid-template-columns: repeat(auto-fit, minmax(13rem, 16rem));
         row-gap: 10px;
         column-gap: 10px;
-        width: auto;
+        max-width: 600px;
     }
     .content-images{
         width: 100%;
@@ -67,6 +90,7 @@ export default {
       className: "bounce",
       showModal: false,
       modalImage: "",
+      modalContent: false
     };
   },
   mounted() {
