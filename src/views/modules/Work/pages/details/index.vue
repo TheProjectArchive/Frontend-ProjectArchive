@@ -40,7 +40,7 @@
     </div>
     <transition name="fade" appear>
       <div class="modal-overlay flex-center">
-        image
+          image
       </div>
     </transition>
   </div>
