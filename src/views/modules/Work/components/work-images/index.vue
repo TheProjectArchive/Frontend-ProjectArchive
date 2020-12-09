@@ -10,30 +10,6 @@
       />
     </div>
   </div>
-  <transition name="fade" appear>
-      <div class="modal-overlay flex-center" v-if="modalContent">
-          <div class="close-modal">
-            <img
-              v-if="filter == true"
-              @click="filter = false"
-              src="@/assets/close-filter.png"
-              alt=""
-              class="button-close"
-            />
-          </div>
-        <div class="container-category scrollable-container ">
-          <div v-for="category in categories" :key="category.index">
-            <button
-              class="category-button white"
-              @click="getByCategory(category.category)"
-            >
-              {{ category.category }}
-            </button>
-          </div>
-        </div>
-          <div class="clearfix"></div>
-      </div>
-    </transition>
 </div>
 </template>
 
@@ -104,8 +80,7 @@ export default {
       this.showModal = true;
     },
     getName(id) {
-      this.modalImage = id;
-      console.log(id);
+      this.$emit('getName', id)
     },
     scrollDown(id) {
       document

@@ -36,17 +36,19 @@
             </div> -->
     </div>
     <div class="col-md-6">
-      <workImages :content="this.content_image"></workImages>
+      <workImages :content="this.content_image" @getName="getName"></workImages>
     </div>
     <transition name="fade" appear>
-      <div class="modal-overlay flex-center">
-          image
+      <div class="modal-overlay flex-center" v-if="showModal">
+          <img @click="showModal = false" class="content-image"
+            :src="'http://admin.theprojectarchive.com/' + this.modalImage"
+          />
       </div>
     </transition>
   </div>
 </template>
 
-<style lang="stylus">
+<style scoped>
 .left-container {
   padding-left: 9%;
 }
@@ -89,7 +91,13 @@
   bottom: 12%;
   right: 0;
   z-index: 98;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 1);
+}
+
+.content-image{
+  cursor: pointer;
+  height: 100%;
+  border: 5px solid white
 }
 </style>
 
@@ -101,32 +109,7 @@ export default {
       data: {},
       banner_image: "",
       content_image: [],
-      response: {
-        bannerimage: "mono-01",
-        category: "Branding Concept",
-        content: [
-          {
-            id: 1,
-            name: "mono-02",
-          },
-          {
-            id: 2,
-            name: "mono-03",
-          },
-          {
-            id: 3,
-            name: "mono-04",
-          },
-          {
-            id: 4,
-            name: "mono-05",
-          },
-          {
-            id: 5,
-            name: "mono-05",
-          },
-        ],
-      },
+      showModal: false
     };
   },
   components: {
@@ -149,6 +132,11 @@ export default {
     goToWebsite(url) {
       window.open("https://" + url);
     },
+    getName(id){
+      this.showModal = true
+      this.modalImage = id;
+      console.log(id);
+    }
   },
 };
 </script>
