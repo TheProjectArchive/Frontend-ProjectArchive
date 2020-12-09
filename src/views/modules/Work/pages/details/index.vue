@@ -16,9 +16,7 @@
       <div class="information-text">
         <div class="title">{{ data.nama_brand }}</div>
         <div class="category">
-          <label>{{
-          data.category
-        }}</label>
+          <label>{{ data.category }}</label>
         </div>
         <div class="description" style="">
           {{ data.description }}
@@ -40,11 +38,15 @@
     <div class="col-md-6">
       <workImages :content="this.content_image"></workImages>
     </div>
+    <transition name="fade" appear>
+      <div class="modal-overlay flex-center">
+        image
+      </div>
+    </transition>
   </div>
 </template>
 
-<style scoped>
-
+<style lang="stylus">
 .left-container {
   padding-left: 9%;
 }
@@ -55,21 +57,21 @@
   font-weight: bold;
 }
 
-.banner-image{
+.banner-image {
   text-align: left;
 }
 
-.category{
+.category {
   text-align: left;
   font-size: 24px;
 }
 
-.description{
+.description {
   font-size: 12px;
   text-align: left;
 }
 
-.information-text{
+.information-text {
   padding-top: 12%;
 }
 
@@ -78,6 +80,16 @@
   font-weight: 400;
   font-size: 13px;
   margin-bottom: 35px;
+}
+
+.modal-overlay {
+  position: absolute;
+  left: 0;
+  top: 12%;
+  bottom: 12%;
+  right: 0;
+  z-index: 98;
+  background-color: rgba(0, 0, 0, 0.9);
 }
 </style>
 
