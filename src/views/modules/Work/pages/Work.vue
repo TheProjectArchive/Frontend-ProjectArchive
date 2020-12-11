@@ -1,5 +1,7 @@
 <template>
-  <div class="row">
+<div>
+  <div v-if="isLoading" ref="workImages" />
+  <div class="row" v-else>
     <div class="col-sm flex-center">
       <img
         v-if="filter == false"
@@ -15,14 +17,13 @@
         data-aos-duration="1200"
         id="scroll-down"
         class="container white image-container"
-        v-lazy-container="{ selector: 'div' }"
       >
         <div v-for="images in image" :key="images.id">
           <img
             class="cursor cover-img"
             @click="setDetailId(images.id)"
             v-if="images.cover_image != ''"
-            :src="
+             :src="
               'http://admin.theprojectarchive.com' +
               images.cover_image.slice(2, -1)
             "
@@ -79,6 +80,8 @@
       </div>
     </transition>
   </div>
+</div>
+  
 </template>
 
 <style lang="stylus">
@@ -218,16 +221,32 @@ export default {
       filter: false,
       categories: [],
       image: [],
+      isLoading: true,
+      loader:
+        this.$loading.show({
+                  // Optional parameters
+                  container: this.$refs.workImages,
+                  canCancel: true,
+                  onCancel: this.onCancel,
+                  opacity: 1,
+                  backgroundColor: '#000000',
+                  color: '#ffffff'
+                })
     };
+  },
+  beforeMount(){
+    this.loader;
   },
   mounted() {
     this.getWorkItems();
-    this.getCategory();
+    this.getCategory();    
   },
   methods: {
     getWorkItems() {
       api.get("/api/workitems").then((response) => {
         this.image = response.data;
+        this.isLoading = false
+        this.loader.hide();
       });
     },
     setDetailId(id) {
@@ -251,6 +270,18 @@ export default {
         this.image = response.data;
       });
     },
+    // submit() {
+    //               var loader = this.$loading.show({
+    //               // Optional parameters
+    //               container: this.$refs.workImages,
+    //               canCancel: true,
+    //               onCancel: this.onCancel,
+    //               opacity: 1,
+    //               backgroundColor: '#000000',
+    //               color: '#ffffff'
+    //             });
+    //             loader.show();        
+    //         }
   },
 };
 </script>

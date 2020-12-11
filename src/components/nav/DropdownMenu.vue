@@ -21,11 +21,6 @@ export default {
         return {
             isOpen: false
         }
-    },
-    methods:{
-        test(){
-            console.log('tolol');
-        }
     }
 }
 </script>

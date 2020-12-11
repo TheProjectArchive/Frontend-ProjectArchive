@@ -34,15 +34,9 @@ export default {
             return this.$route.path === '/contact'
         }
     },
-    mounted(){
-        this.conName()
-    },
     methods:{
         openInstagram(){
             window.open("https://www.instagram.com/project___archive/")
-        },
-        conName(){
-            console.log(this.$route.name)
         },
         goBack(){
             window.history.back();

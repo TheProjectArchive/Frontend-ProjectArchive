@@ -7,7 +7,7 @@
     >
       <div class="banner-image">
         <img
-          style="width: 92%"
+          style="width: 93%"
           :src="'http://admin.theprojectarchive.com' + this.banner_image"
           alt=""
         />
@@ -50,7 +50,7 @@
 
 <style scoped>
 .left-container {
-  padding-left: 9%;
+  padding-left: 10%;
 }
 
 .title {
@@ -126,7 +126,6 @@ export default {
         this.data = response.data;
         this.banner_image = response.data.banner_image.slice(2, -1);
         this.content_image = response.data.content_image;
-        console.log(response.data);
       });
     },
     goToWebsite(url) {
@@ -135,7 +134,6 @@ export default {
     getName(id){
       this.showModal = true
       this.modalImage = id;
-      console.log(id);
     }
   },
 };

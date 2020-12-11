@@ -9,12 +9,13 @@ window.jQuery = jQuery
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-import VueLazyLoad from 'vue-lazyload'
+import VueLoading from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/vue-loading.css';
 
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
-Vue.use(VueLazyLoad)
+Vue.use(VueLoading)
 
 new Vue({
   created () {

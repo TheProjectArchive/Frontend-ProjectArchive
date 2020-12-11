@@ -1,9 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import About from '../views/modules/About/pages/index.vue'
 import Index from '../views/Index.vue'
 import Contact from '../views/modules/Contact/pages/Contact.vue'
-import Work from '../views/modules/Work/pages/Work.vue'
 import Detail from '../views/modules/Work/pages/details/index.vue'
  
 Vue.use(VueRouter)
@@ -17,12 +15,12 @@ Vue.use(VueRouter)
   {
     path: '/about',
     name: 'About',
-    component: About
+    component: () => import(/*webpackChunkName: "about" */'../views/modules/About/pages/index.vue')
   },
   {
     path: '/work',
     name: 'Work',
-    component: Work
+    component: () => import(/*webpackChunkName: "work" */'../views/modules/Work/pages/Work.vue')
   },
   {
     path: '/contact',
@@ -37,7 +35,7 @@ Vue.use(VueRouter)
 ]
 
 const router = new VueRouter({
-  mode: 'hash',
+  mode: 'history',
   base: process.env.BASE_URL,
   routes
 })

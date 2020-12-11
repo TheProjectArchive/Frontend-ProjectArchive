@@ -63,7 +63,6 @@
                     }.bind(this),
                     2000
                         );
-                console.log('asdad')
             },
             sendContactToEmail(){
                 console.log('mounted called')
